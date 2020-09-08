@@ -42,11 +42,11 @@ module.exports = {
         allowNull: true,
       },
       long: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.DOUBLE,
         allowNull: true,
       },
       lat: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.DOUBLE,
         allowNull: true,
       },
       healthcare_type: {
@@ -73,11 +73,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal(
           "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"

@@ -10,6 +10,11 @@ require('dotenv').config();
 // import routes here
 const index = require('./routes/index');
 const healthcp = require('./routes/healthcp');
+const colors = require('colors');
+const errorHandler = require('./middleware/error');
+
+// import routes here
+const auth = require('./routes/auth');
 
 dotenv.config();
 const app = express();
@@ -35,4 +40,9 @@ app.use(
 // use routes here
 app.use('/v1/index', index);
 app.use('/v1/health-care-provider', healthcp);
+app.use('/v1/auth', auth);
+
+// middlewares
+app.use(errorHandler);
+
 module.exports = app;

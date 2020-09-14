@@ -9,6 +9,8 @@ const errorHandler = require('./middleware/error');
 
 // import routes here
 const index = require('./routes/index');
+const updatePatient = require('./routes/updatePatient');
+const payWithPayPal = require('./routes/payWithPayPal');
 const auth = require('./routes/auth');
 
 dotenv.config();
@@ -34,6 +36,8 @@ app.use(
 
 // mount routers here
 app.use('/v1/index', index);
+app.use('/v1/patient/update', updatePatient)
+app.use('/v1/payment/paypal', payWithPayPal)
 app.use('/v1/auth', auth);
 
 // middlewares

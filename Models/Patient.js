@@ -8,32 +8,42 @@ module.exports = (sequelize, DataTypes) => {
 				autoIncrement: true,
 				primaryKey: true,
 			},
-			name: {
+			first_name: {
 				type: DataTypes.STRING(255),
 				defaultValue: false,
-				allowNull: true,
+				allowNull: false,
 			},
-			age: {
-				type: DataTypes.INTEGER,
+			last_name: {
+				type: DataTypes.STRING(255),
 				defaultValue: false,
-				allowNull: true,
+				allowNull: false,
 			},
-			sex: {
+			date_of_birth: {
+				type: DataTypes.DATE,
+				defaultValue: false,
+				allowNull: false,
+			},
+			gender: {
 				type: DataTypes.ENUM,
 				values: ['male', 'female'],
+				defaultValue: false,
+				allowNull: false,
+			},
+			phone_no: {
+				type: DataTypes.VARCHAR(15),
 				defaultValue: false,
 				allowNull: true,
 			},
 			marital_status: {
 				type: DataTypes.ENUM,
-				values: ['single', 'married'],
+				values: ['single', 'married', 'divorced', 'complicated'],
 				defaultValue: false,
-				allowNull: true,
+				allowNull: false,
 			},
 			email: {
 				type: DataTypes.STRING(255),
 				defaultValue: false,
-				allowNull: true,
+				allowNull: false,
 			},
 			occupation: {
 				type: DataTypes.STRING(255),
@@ -56,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: true,
 			},
 			nok_phone: {
-				type: DataTypes.STRING(255),
+				type: DataTypes.VARCHAR(15),
 				defaultValue: false,
 				allowNull: true,
 			},
@@ -65,6 +75,12 @@ module.exports = (sequelize, DataTypes) => {
 				defaultValue: false,
 				allowNull: false,
 			},
+			verification_token: {
+				type: DataTypes.STRING(255),
+				defaultValue: false,
+				allowNull: true,
+			},
+
 			password_token: {
 				type: DataTypes.STRING(255),
 				defaultValue: false,

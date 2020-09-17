@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 	const Patient = sequelize.define(
 		'Patient',
 		{
-			id: {
+			patient_id: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				autoIncrement: true,
@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
 			password: {
 				type: DataTypes.STRING(255),
 				defaultValue: false,
-				allowNull: true,
+				allowNull: false,
 			},
 			password_token: {
 				type: DataTypes.STRING(255),
@@ -92,9 +92,10 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 	Patient.associate = (models) => {
-		Patient.belongsTo(models.PatientRecord);
+		Patient.belongsTo(models.PatientRecord, { foreignKey: 'patient_id' });
 
 		Patient.belongsTo(models.Appointment, {
+			foreignKey: 'patient_id',
 			onDelete: 'cascade',
 		});
 	};

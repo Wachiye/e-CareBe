@@ -11,7 +11,7 @@ module.exports = {
 		 */
 
 		return queryInterface.createTable('staffs', {
-			id: {
+			staff_id: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				autoIncrement: true,

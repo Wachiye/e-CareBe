@@ -39,7 +39,10 @@
     "email-templates": "^7.1.0",
     "express": "^4.17.1",
     "helmet": "^4.1.0",
+<<<<<<< HEAD
     "joi": "^17.2.1",
+=======
+>>>>>>> ac4a91c60b57e7a5a9c371bdcb6e9f1edcabc2b9
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "nodemailer": "^6.4.11",

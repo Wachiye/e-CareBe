@@ -3,7 +3,7 @@ const db = require('../Models/index');
 const crypto = require('crypto');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../utils/async');
-const email = require('../utils/mailer');
+const mailer = require('../utils/mailer');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -58,10 +58,10 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 	)}/auth/resetpassword/${rawToken}`;
 	// send reset link to patient's email address
 	try {
-		await email.send({
+		await mailer.send({
 			template: '../utils/emails/password',
 			message: { to: req.body.email },
-			locals: { name: patient.name, url: resetUrl },
+			locals: { name: patient.last_name, url: resetUrl },
 		});
 		res.status(200).json({
 			email: patient.email,

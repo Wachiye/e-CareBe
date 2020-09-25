@@ -37,12 +37,13 @@ app.use(
 );
 
 // mount routers here
-app.use('/v1/index', index);
+app.use('', index);
 app.use('/v1/patient/update', updatePatient);
 app.use('/v1/payment/paypal', payWithPayPal);
 app.use('/v1/patient/add', patientRegister);
 app.use('/v1/emergencyrequest', emergencyRequest);
 app.use('/v1/auth', auth);
+
 
 // middlewares
 app.use(errorHandler);

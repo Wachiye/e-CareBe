@@ -1,10 +1,9 @@
-/* eslint-disable no-undef */
 const dotenv = require('dotenv');
 dotenv.config();
 module.exports = {
   development: {
-    username: 'root',
-    password: null,
+    username: 'e-care',
+    password: 'e-CareBe',
     database: 'e-care',
     host: 'localhost',
     dialect: 'mysql',

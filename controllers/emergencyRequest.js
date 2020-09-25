@@ -1,6 +1,6 @@
 const nodeGeocoder = require('node-geocoder');
 const geolib = require('geolib');
-const db = require('../models/index');
+const db = require('../Models/index');
 
 exports.emergencyRequest = async (req, res) => {
     // Fetching coordinates for all health care providers from database

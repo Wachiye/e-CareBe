@@ -1,4 +1,4 @@
-const db = require('../models/index');
+const db = require('../Models/index');
 
 const Patient = db.Patient;
 

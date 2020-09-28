@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 	const Staff = sequelize.define(
 		'Staff',
 		{
-			id: {
+			staff_id: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				autoIncrement: true,

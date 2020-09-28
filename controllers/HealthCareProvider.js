@@ -1,26 +1,11 @@
 const { successResponse, errorResponse } = require('.');
 
 /* prettier-ignore */
-const sequelize = require('../models').sequelize;
-const { DataTypes } = require('../models').Sequelize;
+const db = require('../Models/index');
 
-const HealthCareProvider = require('../models/HealthCareProvider')(
-	sequelize,
-	DataTypes
-);
-
-/**
- *
- * @param {object} req - The request object
- * @param {object} res  - The response object
- *
- * Method to handle health care provider creation
- */
-exports.create = (req, res) => {
-	/**
-   * Create a health care provider
-   */
-	const healthCareProvider = new HealthCareProvider({
+exports.providerSignUp = (req, res, next) => {
+	// Create a health care provider
+	const healthCareProvider = {
 		name: req.body.name,
 		address_line1: req.body.address_line1,
 		accreditation_no: req.body.accreditation_no,
@@ -35,10 +20,8 @@ exports.create = (req, res) => {
 		state: req.body.state,
 		country: req.body.country,
 		zipcode: req.body.zipcode,
-	});
-	/**
-   * Save user to database
-   */
+	}
+	//Save user to database
 	healthCareProvider
 		.save()
 		.then((data) => {

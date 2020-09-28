@@ -14,8 +14,6 @@ const index = require('./routes/index');
 const healthcp = require('./routes/healthcp');
 const colors = require('colors');
 const errorHandler = require('./middleware/error');
-
-// import routes here
 const auth = require('./routes/auth');
 
 dotenv.config();

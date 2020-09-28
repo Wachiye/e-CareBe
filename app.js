@@ -37,7 +37,7 @@ app.use(
 	})
 );
 
-// use routes here
+// mount routers here
 app.use('/v1/index', index);
 app.use('/v1/provider', healthcp);
 app.use('/v1/auth', auth);

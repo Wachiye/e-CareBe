@@ -21,8 +21,6 @@ if (config.use_env_variable) {
 	);
 }
 
-console.log(process.env.DB_USER);
-
 fs.readdirSync(__dirname)
 	.filter((file) => {
 		return (

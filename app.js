@@ -3,12 +3,17 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const colors = require('colors');
+const db = require('./Models');
 const cors = require('cors');
 const helmet = require('helmet');
 const errorHandler = require('./middleware/error');
+require('dotenv').config();
 
 // import routes here
 const index = require('./routes/index');
+const healthcp = require('./routes/healthcp');
+const colors = require('colors');
+const errorHandler = require('./middleware/error');
 const updatePatient = require('./routes/updatePatient');
 const payWithPayPal = require('./routes/payWithPayPal');
 const patientRegister = require('./routes/patient-register');
@@ -37,6 +42,8 @@ app.use(
 );
 
 // mount routers here
+app.use('/v1/index', index);
+app.use('/v1/provider', healthcp);
 app.use('', index);
 app.use('/v1/patient/update', updatePatient);
 app.use('/v1/payment/paypal', payWithPayPal);

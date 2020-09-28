@@ -2,10 +2,9 @@ module.exports = (sequelize, DataTypes) => {
   const HealthCareProvider = sequelize.define(
     "HealthCareProvider",
     {
-      id: {
-        type: DataTypes.INTEGER,
+      provider_id: {
+        type: DataTypes.STRING(255),
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
       },
       name: {
@@ -34,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: null,
         allowNull: true,
       },
-      occupation: {
+      password: {
         type: DataTypes.STRING(255),
         defaultValue: null,
         allowNull: true,

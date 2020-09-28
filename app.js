@@ -1,10 +1,11 @@
-const express = require('express');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const colors = require('colors');
 const db = require('./Models');
 const cors = require('cors');
 const helmet = require('helmet');
+const errorHandler = require('./middleware/error');
 require('dotenv').config();
 
 // import routes here

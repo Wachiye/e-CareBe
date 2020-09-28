@@ -39,7 +39,7 @@ app.use(
 
 // use routes here
 app.use('/v1/index', index);
-app.use('/v1/health-care-provider', healthcp);
+app.use('/v1/provider', healthcp);
 app.use('/v1/auth', auth);
 
 // middlewares

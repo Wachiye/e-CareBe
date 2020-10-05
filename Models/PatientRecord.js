@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: false,
 			},
 			patient_id: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING(255),
 			},
 			created_at: {
 				type: DataTypes.DATE,

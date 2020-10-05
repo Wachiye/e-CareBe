@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const app = require('./app');
+const colors = require('colors');
 
 // Port Normalization
 const normalizePort = (val) => {

@@ -3,13 +3,13 @@ module.exports = (sequelize, DataTypes) => {
 		'Staff',
 		{
 			staff_id: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING(255),
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 			},
 			provider_id: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING(255),
 			},
 			staff_email: {
 				type: DataTypes.STRING(255),

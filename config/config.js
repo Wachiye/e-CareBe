@@ -2,8 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 module.exports = {
 	development: {
-		username: 'root',
-		password: 'Ogunsman1@23',
+		username: process.env.DB_USERNAME,
+		password: process.env.DB_PASSWORD,
 		database: 'e-care',
 		host: 'localhost',
 		dialect: 'mysql',

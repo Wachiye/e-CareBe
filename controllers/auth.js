@@ -144,6 +144,7 @@ exports.staffLogin = asyncHandler(async (req, res) => {
 
 			res.json({
 				status: 'success',
+				staff_id,
 				token: loginToken,
 			});
 		} else {
@@ -156,7 +157,7 @@ exports.staffLogin = asyncHandler(async (req, res) => {
 
 // @desc      Patient Login
 // @route     POST /v1/auth/patientlogin
-exports.patientLogin = asyncHandler(async (req, res) => {
+exports.patientLogin = asyncHandler(async (req, res, next) => {
 	let { email, password } = req.body;
 
 	const patient = await db.Patient.findOne({
@@ -188,3 +189,36 @@ exports.patientLogin = asyncHandler(async (req, res) => {
 		return next(new ErrorResponse('Email is not registered', 404));
 	}
 });
+
+exports.providerLogin = async (req, res, next) => {
+	let { provider_id, password } = req.body;
+
+	const provider = await db.HealthCareProvider.findOne({
+		where: { provider_id: provider_id },
+	});
+
+	if (provider) {
+		const passwordAuth = await bcrypt.compare(password, provider.password);
+		if (passwordAuth) {
+			const loginToken = createToken(provider_id);
+
+			await db.HealthCareProvider.update(
+				{
+					password_token: loginToken,
+					password_token_expire: loginTokenExpiryTime,
+				},
+				{ where: { provider_id: provider_id } }
+			).catch((error) => res.status(500).json({ error }));
+
+			res.json({
+				status: 'success',
+				provider_id,
+				token: loginToken,
+			});
+		} else {
+			return next(new ErrorResponse('Incorrect Password', 401));
+		}
+	} else {
+		return next(new ErrorResponse('Email is not registered', 404));
+	}
+};

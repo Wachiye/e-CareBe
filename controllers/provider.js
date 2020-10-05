@@ -1,22 +1,29 @@
 const db = require('../Models/index');
 const ErrorResponse = require('../utils/errorResponse');
 const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcryptjs');
 
 exports.providerSignUp = async (req, res, next) => {
 	// check if exists
+	req.body.password = await bcrypt.hash(req.body.password, 8);
+	console.log(req.body.password);
 	const provider = await db.HealthCareProvider.findOne({
 		where: { name: req.body.name },
 	});
 	if (provider) {
 		return next(new ErrorResponse('Provider already exists', 400));
 	}
+	// assign id to provider
 	req.body.provider_id = uuidv4();
+
+	// hash password
 	//Save user to database
 	await db.HealthCareProvider.create(req.body)
 		.then((data) => {
 			res.status(201).json({
 				success: true,
-				message: 'Health care provider created successfully.',
+				message:
+					'Health care provider created successfully, Keep ID safely, you only get it once',
 				data,
 			});
 		})

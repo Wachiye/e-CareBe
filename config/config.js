@@ -2,8 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 module.exports = {
 	development: {
-		username: 'root',
-		password: 'Ogunsman1@23',
+		username: 'e-care',
+		password: 'e-careBe',
 		database: 'e-care',
 		host: 'localhost',
 		dialect: 'mysql',

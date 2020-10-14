@@ -11,10 +11,9 @@ module.exports = {
 		 */
 
 		return queryInterface.createTable('health_care_providers', {
-			id: {
-				type: Sequelize.INTEGER,
+			provider_id: {
+				type: Sequelize.STRING(255),
 				allowNull: false,
-				autoIncrement: true,
 				primaryKey: true,
 			},
 			name: {
@@ -38,7 +37,7 @@ module.exports = {
 				values: ['private', 'government'],
 				allowNull: true,
 			},
-			occupation: {
+			password: {
 				type: Sequelize.STRING(255),
 				allowNull: true,
 			},

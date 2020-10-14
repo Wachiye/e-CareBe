@@ -12,16 +12,15 @@ module.exports = {
 
 		return queryInterface.createTable('staffs', {
 			staff_id: {
-				type: Sequelize.INTEGER,
+				type: Sequelize.STRING(255),
 				allowNull: false,
-				autoIncrement: true,
 				primaryKey: true,
 			},
 			provider_id: {
-				type: Sequelize.INTEGER,
+				type: Sequelize.STRING(255),
 				references: {
 					model: 'health_care_providers', // name of Target model
-					key: 'id', // key in Target model that we're referencing
+					key: 'provider_id', // key in Target model that we're referencing
 				},
 			},
 			staff_email: {

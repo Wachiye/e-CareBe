@@ -38,6 +38,7 @@
     "dotenv": "^8.2.0",
     "email-templates": "^7.1.0",
     "express": "^4.17.1",
+    "express-validator": "^6.6.1",
     "geolib": "^3.3.1",
     "helmet": "^4.1.0",
     "joi": "^17.2.1",

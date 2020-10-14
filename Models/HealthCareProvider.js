@@ -2,92 +2,81 @@ module.exports = (sequelize, DataTypes) => {
 	const HealthCareProvider = sequelize.define(
 		'HealthCareProvider',
 		{
-			id: {
-				type: DataTypes.INTEGER,
+			provider_id: {
+				type: DataTypes.STRING(255),
 				allowNull: false,
-				autoIncrement: true,
 				primaryKey: true,
 			},
 			name: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			address_line1: {
 				type: DataTypes.TEXT,
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			accreditation_no: {
 				type: DataTypes.STRING,
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			hotline: {
 				type: DataTypes.STRING,
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			private_govt: {
 				type: DataTypes.ENUM,
 				values: ['private', 'government'],
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
-			occupation: {
+			password: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			long: {
-				type: DataTypes.STRING(255),
-				defaultValue: false,
+				type: DataTypes.DOUBLE,
+				defaultValue: null,
 				allowNull: true,
 			},
 			lat: {
-				type: DataTypes.STRING(255),
-				defaultValue: false,
+				type: DataTypes.DOUBLE,
+				defaultValue: null,
 				allowNull: true,
 			},
 			healthcare_type: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			address_line2: {
 				type: DataTypes.TEXT,
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			city: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			state: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			country: {
 				type: DataTypes.STRING(255),
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
 			},
 			zipcode: {
 				type: DataTypes.INTEGER,
-				defaultValue: false,
+				defaultValue: null,
 				allowNull: true,
-			},
-			created_at: {
-				type: DataTypes.DATE,
-				defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			},
-			updated_at: {
-				type: DataTypes.DATE,
-				defaultValue: sequelize.literal(
-					'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-				),
 			},
 		},
 		{
